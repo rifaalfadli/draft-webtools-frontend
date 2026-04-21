@@ -639,6 +639,26 @@
         }
       ],
       "id": "FzdIiKMInI4"
+    },
+    {
+      "pole": {
+        "materialPole": "STK400",
+        "lowestHeightPole": 3,
+        "heightPole": 3,
+        "thicknessPole": 3,
+        "diameterPole": 3
+      },
+      "objects": [
+        {
+          "weightDo": 3,
+          "heightDo": 3,
+          "cfDo": 3,
+          "areaSideDo": 3,
+          "areaFrontDo": 3,
+          "nameDo": "pole"
+        }
+      ],
+      "id": "02GBgHDj1zM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
