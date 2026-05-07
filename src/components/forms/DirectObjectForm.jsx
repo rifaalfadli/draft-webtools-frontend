@@ -1,11 +1,13 @@
 import { useFormContext } from "react-hook-form";
 
 export default function DirectObjectForm() {
+  // access react-hook-form context for register and validation errors
   const {
     register,
     formState: { errors },
   } = useFormContext();
 
+  // reusable input style with conditional error state
   const inputStyle = (hasError) =>
     `w-full px-4 py-2 rounded-lg outline-none transition-all border
   ${
@@ -14,16 +16,18 @@ export default function DirectObjectForm() {
       : "border-gray-300 bg-white focus:border-[#3399cc] focus:ring-1 focus:ring-[#3399cc]"
   }`;
 
+  // reusable error text style
   const errorStyle = "text-xs text-red-500 min-h-[18px]";
 
   return (
     <div className="bg-white p-6 rounded-xl border border-gray-200">
+      {/* section header */}
       <h2 className="text-blue-800 bg-blue-200 py-3 mb-6 text-center items-center gap-2 text-lg font-semibold">
         Direct Object
       </h2>
 
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
-        {/* Name */}
+        {/* object name input */}
         <div>
           <label className="block text-gray-700 mb-2 text-sm font-medium">
             Name
@@ -36,7 +40,7 @@ export default function DirectObjectForm() {
           <p className={errorStyle}>{errors.object?.nameDo?.message || ""}</p>
         </div>
 
-        {/* Front Area */}
+        {/* front area input */}
         <div>
           <label className="block text-gray-700 mb-2 text-sm font-medium">
             Front Area
@@ -51,7 +55,7 @@ export default function DirectObjectForm() {
           </p>
         </div>
 
-        {/* Side Area */}
+        {/* side area input */}
         <div>
           <label className="block text-gray-700 mb-2 text-sm font-medium">
             Side Area
@@ -66,7 +70,7 @@ export default function DirectObjectForm() {
           </p>
         </div>
 
-        {/* Coefficient */}
+        {/* coefficient input */}
         <div>
           <label className="block text-gray-700 mb-2 text-sm font-medium">
             Coefficient
@@ -79,7 +83,7 @@ export default function DirectObjectForm() {
           <p className={errorStyle}>{errors.object?.cfDo?.message || ""}</p>
         </div>
 
-        {/* Height */}
+        {/* height input */}
         <div>
           <label className="block text-gray-700 mb-2 text-sm font-medium">
             Height
@@ -92,7 +96,7 @@ export default function DirectObjectForm() {
           <p className={errorStyle}>{errors.object?.heightDo?.message || ""}</p>
         </div>
 
-        {/* Weight */}
+        {/* weight input */}
         <div>
           <label className="block text-gray-700 mb-2 text-sm font-medium">
             Weight

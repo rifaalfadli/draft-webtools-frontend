@@ -8,13 +8,16 @@ import { useCalculation } from "../hooks/useCalculation";
 import { Loader2, Calculator } from "lucide-react";
 
 function CalculationPage() {
+  // initialize react-hook-form with validation schema
   const methods = useForm({
     resolver: yupResolver(calculationSchema),
     mode: "onSubmit",
   });
 
+  // custom hook for handling calculation logic (API)
   const { result, loading, handleCalculate } = useCalculation();
 
+  // handle form submission and transform data into API payload
   const onSubmit = (data) => {
     const payload = {
       pole: data.pole,
@@ -24,6 +27,7 @@ function CalculationPage() {
     handleCalculate(payload);
   };
 
+  // validate result structure before rendering result card
   const isValidResult =
     result &&
     typeof result.windload === "number" &&
@@ -36,14 +40,14 @@ function CalculationPage() {
         className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-slate-200 py-12 px-20"
       >
         <div className="space-y-6">
-          {/* HEADER */}
+          {/* header */}
           <div className="text-center">
             <h1 className="text-3xl font-bold text-slate-800 tracking-tight">
               Pole Calculations
             </h1>
           </div>
 
-          {/* FORM CARD CONTAINER */}
+          {/* input form section container */}
           <div className="bg-white rounded-xl border border-slate-200 p-6 lg:p-8">
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
               <PoleForm />
@@ -51,7 +55,7 @@ function CalculationPage() {
             </div>
           </div>
 
-          {/* BUTTON */}
+          {/* submit button */}
           <div className="flex justify-center">
             <button
               type="submit"
@@ -79,7 +83,7 @@ function CalculationPage() {
             </button>
           </div>
 
-          {/* RESULT */}
+          {/* result section */}
           <div className="border-t border-slate-200"></div>
           {result && (
             <div className="bg-white rounded-xl border border-slate-200 p-6">
